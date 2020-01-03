@@ -1,13 +1,13 @@
 import React from "react";
 import NavBar from "./NavBar";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch } from "react-router-dom";
 
 const App = () => {
   return (
     <Router>
       <NavBar />
       <Switch>
-        <Route exact to="/SearchMemes">
+        {/* <Route exact to="/SearchMemes">
           <SearchMemes />
         </Route>
         <Route exact to="/UploadMeme">
@@ -15,7 +15,7 @@ const App = () => {
         </Route>
         <Route exact to="/Favourites">
           <Favourites />
-        </Route>
+        </Route> */}
       </Switch>
     </Router>
   );
