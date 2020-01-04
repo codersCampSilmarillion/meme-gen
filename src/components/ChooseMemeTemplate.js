@@ -44,7 +44,7 @@ const ChooseMemeTemplate = () => {
       padding: "10px"
     },
     selected: {
-      display: "flex",  
+      display: "flex",
       flexDirection: "column",
       alignItems: "center",
       padding: "10px"
