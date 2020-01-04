@@ -1,14 +1,16 @@
 import React from 'react';
+import './css/app.css';
+import MemeCard from './memeCard'
 
 const MemesList = (props) => {
     const memes = props.memes.map((meme) => {
-        return <img src = { meme.url }
-        />
+        return <MemeCard meme = {meme} key = {meme.id} />
     })
 
-    return ( <
-        div > { memes } <
-        /div>
+    return ( 
+        <div className="mem-list" >
+            { memes } 
+        </div>
     )
 };
 
