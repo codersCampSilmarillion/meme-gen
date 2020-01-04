@@ -12,7 +12,7 @@ import { makeStyles } from "@material-ui/core/styles";
 const ChooseMemeTemplate = () => {
   const [templates, setTemplates] = useState([]);
   const [selectedTemplate, setSelectedTemplate] = useState([]);
-  const mediaQueryMax320 = useMediaQuery("(max-width:320px)");
+  const mediaQueryMax320 = useMediaQuery("(max-width: 320px)");
   const useStyles = makeStyles(theme => ({
     root: {
       display: "flex",
@@ -77,10 +77,18 @@ const ChooseMemeTemplate = () => {
     FetchTemplates();
   }, []);
 
+  const mediaQueryMax900 = useMediaQuery("(max-width: 900px)");
+  const mediaQueryMax550 = useMediaQuery("(max-width: 550px)");
+
+  const imagesInList = () => {
+    if (mediaQueryMax550) return 2;
+    if (mediaQueryMax900) return 3;
+    return 4;
+  };
   return (
     <Container maxWidth="md">
       <div className={classes.root}>
-        <GridList className={classes.gridList} cols={4}>
+        <GridList className={classes.gridList} cols={imagesInList()}>
           {tiles}
         </GridList>
         <div className={classes.selected}>
