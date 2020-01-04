@@ -14,8 +14,9 @@ import { styled } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
+import SearchIcon from "@material-ui/icons/Search";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 import { Link } from "react-router-dom";
 
 const StyledToolbar = styled(Toolbar)({
@@ -80,7 +81,13 @@ const NavBar = () => {
             {menuItems.map((text, index) => (
               <ListItem button key={text}>
                 <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                  {text === "Search Memes" ? (
+                    <SearchIcon />
+                  ) : text === "Upload Meme" ? (
+                    <CloudUploadIcon />
+                  ) : (
+                    <FavoriteIcon />
+                  )}
                 </ListItemIcon>
                 <ListItemText>
                   <StyledLinkDark
