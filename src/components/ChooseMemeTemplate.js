@@ -40,8 +40,11 @@ const ChooseMemeTemplate = () => {
       maxWidth: mediaQueryMax320 ? "270px" : "80%",
       border: "1px solid rgba(0, 0, 0, 0.12)"
     },
+    selectedTitle: {
+      padding: "10px"
+    },
     selected: {
-      display: "flex",
+      display: "flex",  
       flexDirection: "column",
       alignItems: "center",
       padding: "10px"
@@ -92,7 +95,9 @@ const ChooseMemeTemplate = () => {
           {tiles}
         </GridList>
         <div className={classes.selected}>
-          <Typography variant="h6">{selectedTemplate.name}</Typography>
+          <Typography variant="h6" className={classes.selectedTitle}>
+            {selectedTemplate.name}
+          </Typography>
           <img
             className={classes.selectedImage}
             alt={selectedTemplate.name}
