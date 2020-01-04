@@ -1,11 +1,13 @@
 import React from "react";
 import NavBar from "./NavBar";
 import { BrowserRouter as Router, Switch } from "react-router-dom";
+import ChooseMemeTemplate from "./ChooseMemeTemplate";
 
 const App = () => {
   return (
     <Router>
       <NavBar />
+      <ChooseMemeTemplate />
       <Switch>
         {/* <Route exact to="/SearchMemes">
           <SearchMemes />
