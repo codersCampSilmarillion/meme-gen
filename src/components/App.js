@@ -13,7 +13,7 @@ class App extends React.Component {
         try{
             const response = await axios.get('http://api.giphy.com/v1/gifs/search', {
                 params: {
-                    api_key: '9zdu5qM9hpvnV2VpvxbWEsBUt5bIxQJg',
+                        api_key: '9zdu5qM9hpvnV2VpvxbWEsBUt5bIxQJg',
                     q: term
                 }
             });
