@@ -7,49 +7,13 @@ import {
   GridListTile,
   GridListTileBar
 } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import useStyles from "./styles";
 
 const ChooseMemeTemplate = () => {
   const [templates, setTemplates] = useState([]);
   const [selectedTemplate, setSelectedTemplate] = useState([]);
-  const mediaQueryMax320 = useMediaQuery("(max-width: 320px)");
-  const useStyles = makeStyles(theme => ({
-    root: {
-      display: "flex",
-      marginTop: "80px",
-      flexWrap: "wrap",
-      justifyContent: "space-around",
-      overflow: "hidden",
-      backgroundColor: theme.palette.background.paper,
-      border: "1px solid rgba(0, 0, 0, 0.12)",
-      padding: "10px"
-    },
-    gridList: {
-      flexWrap: "nowrap",
-      transform: "translateZ(0)"
-    },
-    titleBar: {
-      background:
-        "linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)"
-    },
-    tile: {
-      cursor: "pointer"
-    },
-    selectedImage: {
-      marginBottom: "30px",
-      maxWidth: mediaQueryMax320 ? "270px" : "80%",
-      border: "1px solid rgba(0, 0, 0, 0.12)"
-    },
-    selectedTitle: {
-      padding: "10px"
-    },
-    selected: {
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      padding: "10px"
-    }
-  }));
+  
+ 
   const classes = useStyles();
 
   const tiles = templates.map(tile => {
@@ -65,7 +29,7 @@ const ChooseMemeTemplate = () => {
     );
   });
 
-  const FetchTemplates = async () => {
+  const fetchTemplates = async () => {
     const url = "https://api.imgflip.com/get_memes";
     try {
       const response = await fetch(url);
@@ -77,7 +41,7 @@ const ChooseMemeTemplate = () => {
   };
 
   useEffect(() => {
-    FetchTemplates();
+    fetchTemplates();
   }, []);
 
   const mediaQueryMax900 = useMediaQuery("(max-width: 900px)");
