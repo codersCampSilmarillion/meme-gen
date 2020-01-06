@@ -3,7 +3,7 @@ import ImageZoom from 'react-medium-image-zoom'
 
 function meme(props) {
     let width = props.width * 1.5;
-    let heigh = props.height * 1.5;
+    let height = props.height * 1.5;
     return (
         <ImageZoom
             image={{
