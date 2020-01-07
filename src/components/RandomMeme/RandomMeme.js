@@ -1,10 +1,10 @@
 import React, {Component} from "react";
 import {
     Button,
-    ListItemText, GridListTile, Container, Box
+    ListItemText , Grid, Container, Box, ListItemAvatar, Avatar, ListItem
 
 } from "@material-ui/core";
-import Image from 'material-ui-image'
+import StarIcon from '@material-ui/icons/Star';
 import StyledComponents from "./styles";
 
 class RandomMeme extends Component {
@@ -13,7 +13,9 @@ class RandomMeme extends Component {
         this.state = {
             randomImg: "",
             allMemeImg: [],
-            alt: ""
+            alt: "",
+            width: "",
+            height: ""
         };
     }
 
@@ -23,9 +25,26 @@ class RandomMeme extends Component {
         );
         this.setState({
             randomImg: this.state.allMemeImg[randomNumber].url,
-            alt: this.state.allMemeImg[randomNumber].name
+            alt: this.state.allMemeImg[randomNumber].name,
+            width: this.state.allMemeImg[randomNumber].width,
+            height: this.state.allMemeImg[randomNumber].height
         });
     }
+
+    imgSize(width, height) {
+        if (height > 1500 || width > 1500) {
+            return 0.2;
+        }
+        if (height > 1000 || width > 1000){
+            return 0.4;
+        }
+        if (height > 560 && height < 1000 || width > 560 && width < 1000) {
+            return 0.5
+        } else {
+            return 1
+        }
+    }
+
 
     handleClick = () => {
         this.random();
@@ -42,25 +61,49 @@ class RandomMeme extends Component {
     }
 
     render() {
+        console.log(this.state)
         return (
             <Container>
-                <Box style={{marginTop: "10%"}} textAlign="center">
-                    <h2>Make your own amazing meme!</h2>
+                <Box style={{marginTop: "7%", marginBottom: "2%"}} textAlign="center">
+                    <h1>Make your own amazing meme!</h1>
+                    <p>Create your meme easy</p>
                 </Box>
-                <Box>
-                    <Box component={"div"} display={"inline"}>
-                        <img display={"inline"} className="imgRand" src={this.state.randomImg}
+                <Grid container spacing={1} style={{backgroundColor: " rgb(245,245,240)"}}>
+                    <Box component={"div"} display={"inline"} m={2}>
+                        <img className="imgRand" src={this.state.randomImg}
                              alt={this.state.alt}
-                             style={{width: '40%', height: 'auto', margin: '2em', padding: '0'}}/>
+                             width={this.state.width * this.imgSize(this.state.width, this.state.height)}
+                             height={this.state.height * this.imgSize(this.state.width, this.state.height)}
+                        />
                     </Box>
-                    <Box component={"div"} display={"inline"}>
-                        <ListItemText display={"inline"}>
-                            <p>1.Choose you template</p>
-                            <p>2.Write your text</p>
-                            <p>3.Voila!</p>
-                        </ListItemText>
+                    <Box component={"div"} display={"inline"} m={4} p={3}>
+                        <h2 align={"right"}>How to make a meme</h2>
+                        <ListItem>
+                            <ListItemAvatar>
+                                <Avatar>
+                                    <StarIcon />
+                                </Avatar>
+                            </ListItemAvatar>
+                            <ListItemText primary="Choose you meme template"/>
+                        </ListItem>
+                        <ListItem>
+                            <ListItemAvatar>
+                                <Avatar>
+                                    <StarIcon />
+                                </Avatar>
+                            </ListItemAvatar>
+                            <ListItemText primary="Write your unique text"/>
+                        </ListItem>
+                        <ListItem>
+                            <ListItemAvatar>
+                                <Avatar>
+                                    <StarIcon />
+                                </Avatar>
+                            </ListItemAvatar>
+                            <ListItemText primary="Voila! You have just created a meme"/>
+                        </ListItem>
                     </Box>
-                </Box>
+                </Grid>
 
             </Container>
         );
