@@ -4,7 +4,10 @@ const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
     marginTop: "80px",
-    flexWrap: "wrap",
+    [theme.breakpoints.down(700)]: {
+      flexDirection: "column",
+      alignItems: "center"
+    },
     justifyContent: "space-around",
     overflow: "hidden",
     backgroundColor: theme.palette.background.paper,
@@ -13,7 +16,10 @@ const useStyles = makeStyles(theme => ({
   },
   gridList: {
     flexWrap: "nowrap",
-    transform: "translateZ(0)"
+    transform: "translateZ(0)",
+    width: "50%",
+    [theme.breakpoints.down(700)]: { width: "100%" },
+    maxHeight: "200px"
   },
   titleBar: {
     background:
@@ -35,7 +41,9 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    padding: "10px"
+    padding: "10px",
+    width: "50%",
+    [theme.breakpoints.down(700)]: { width: "80%" }
   }
 }));
 

@@ -12,8 +12,7 @@ import useStyles from "./styles";
 const ChooseMemeTemplate = () => {
   const [templates, setTemplates] = useState([]);
   const [selectedTemplate, setSelectedTemplate] = useState([]);
-  
- 
+
   const classes = useStyles();
 
   const tiles = templates.map(tile => {
@@ -44,13 +43,11 @@ const ChooseMemeTemplate = () => {
     fetchTemplates();
   }, []);
 
-  const mediaQueryMax900 = useMediaQuery("(max-width: 900px)");
   const mediaQueryMax550 = useMediaQuery("(max-width: 550px)");
 
   const imagesInList = () => {
     if (mediaQueryMax550) return 2;
-    if (mediaQueryMax900) return 3;
-    return 4;
+    return 3;
   };
   return (
     <Container maxWidth="md">
