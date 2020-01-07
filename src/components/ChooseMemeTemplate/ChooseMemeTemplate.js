@@ -9,9 +9,8 @@ import {
 } from "@material-ui/core";
 import useStyles from "./styles";
 
-const ChooseMemeTemplate = () => {
+const ChooseMemeTemplate = ({ selectedTemplate, setSelectedTemplate }) => {
   const [templates, setTemplates] = useState([]);
-  const [selectedTemplate, setSelectedTemplate] = useState([]);
 
   const classes = useStyles();
 
