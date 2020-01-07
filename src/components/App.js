@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import axios from "axios";
 import SearchBar from "./SearchBar";
 import MemesList from "./MemesList";
+import ChooseMemeTemplate from "./ChooseMemeTemplate/ChooseMemeTemplate";
+import UploadMemeForm from "./UploadMemeForm";
 // import Favourites from "./Favourites";
 // import UploadMeme from "./UploadMeme";
 import "./css/app.css";
@@ -28,6 +30,8 @@ const App = () => {
   return (
     <Router>
       <NavBar />
+      <ChooseMemeTemplate/>
+      <UploadMemeForm/>
       <Switch>
         <Route exact to="/SearchMemes">
           <div className="main">
@@ -41,6 +45,9 @@ const App = () => {
             <MemesList memes={memes} />
           </div>
         </Route>
+        {/* <Route exact to="/ChooseMemeTemplate">
+          
+        </Route> */}
         <Route exact to="/UploadMeme">
           {/* <UploadMeme /> */}
         </Route>
