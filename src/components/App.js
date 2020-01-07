@@ -6,7 +6,7 @@ import axios from "axios";
 import SearchBar from "./SearchBar";
 import MemesList from "./MemesList";
 // import Favourites from "./Favourites";
-// import UploadMeme from "./UploadMeme";
+import UploadMeme from "../views/UploadMeme";
 import "./css/app.css";
 
 const App = () => {
@@ -29,7 +29,8 @@ const App = () => {
     <Router>
       <NavBar />
       <Switch>
-        <Route exact to="/SearchMemes">
+        <Route exact path="/"></Route>
+        <Route exact path="/SearchMemes">
           <div className="main">
             <div className="header">
               <Typography variant="h1">GIF SEARCHER</Typography>
@@ -41,10 +42,10 @@ const App = () => {
             <MemesList memes={memes} />
           </div>
         </Route>
-        <Route exact to="/UploadMeme">
-          {/* <UploadMeme /> */}
+        <Route exact path="/UploadMeme">
+          <UploadMeme />
         </Route>
-        <Route exact to="/Favourites">
+        <Route exact path="/Favourites">
           {/* <Favourites /> */}
         </Route>
       </Switch>
