@@ -5,33 +5,36 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import axios from "axios";
 import SearchBar from "./SearchBar";
 import MemesList from "./MemesList";
+import ChooseMemeTemplate from "./ChooseMemeTemplate/ChooseMemeTemplate";
+import UploadMemeForm from "./UploadMemeForm";
 // import Favourites from "./Favourites";
 import UploadMeme from "../views/UploadMeme";
 import "./css/app.css";
 
 const App = () => {
-  const [memes, setMemes] = useState([]);
-  const onSearchSubmit = async term => {
-    try {
-      const response = await axios.get("http://api.giphy.com/v1/gifs/search", {
-        params: {
-          api_key: "9zdu5qM9hpvnV2VpvxbWEsBUt5bIxQJg",
-          q: term
-        }
-      });
-      setMemes(response.data.data);
-    } catch (e) {
-      console.error(e);
-    }
-  };
+  // const [memes, setMemes] = useState([]);
+  // const onSearchSubmit = async term => {
+  //   try {
+  //     const response = await axios.get("http://api.giphy.com/v1/gifs/search", {
+  //       params: {
+  //         api_key: "9zdu5qM9hpvnV2VpvxbWEsBUt5bIxQJg",
+  //         q: term
+  //       }
+  //     });
+  //     setMemes(response.data.data);
+  //   } catch (e) {
+  //     console.error(e);
+  //   }
+  // };
 
   return (
     <Router>
       <NavBar />
+      <UploadMemeForm />
       <Switch>
         <Route exact path="/"></Route>
         <Route exact path="/SearchMemes">
-          <div className="main">
+          {/* <div className="main">
             <div className="header">
               <Typography variant="h1">GIF SEARCHER</Typography>
               <Typography variant="h4">
@@ -40,7 +43,7 @@ const App = () => {
               <SearchBar onSubmit={onSearchSubmit} />
             </div>
             <MemesList memes={memes} />
-          </div>
+          </div> */}
         </Route>
         <Route exact path="/UploadMeme">
           <UploadMeme />
