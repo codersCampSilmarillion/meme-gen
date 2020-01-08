@@ -6,7 +6,6 @@ import axios from "axios";
 import SearchBar from "./SearchBar";
 import MemesList from "./MemesList";
 import ChooseMemeTemplate from "./ChooseMemeTemplate/ChooseMemeTemplate";
-import UploadMemeForm from "./UploadMemeForm";
 // import Favourites from "./Favourites";
 import UploadMeme from "../views/UploadMeme";
 import "./css/app.css";
@@ -30,7 +29,6 @@ const App = () => {
   return (
     <Router>
       <NavBar />
-      <UploadMemeForm />
       <Switch>
         <Route exact path="/"></Route>
         <Route exact path="/SearchMemes">

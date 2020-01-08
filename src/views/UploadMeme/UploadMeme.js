@@ -9,8 +9,9 @@ const UploadMeme = () => {
       <ChooseMemeTemplate
         setSelectedTemplate={setSelectedTemplate}
         selectedTemplate={selectedTemplate}
-      />
-      <UploadMemeForm selectedTemplate={selectedTemplate.id} />
+      >
+        <UploadMemeForm selectedTemplate={selectedTemplate.id} />
+      </ChooseMemeTemplate>
     </>
   );
 };
