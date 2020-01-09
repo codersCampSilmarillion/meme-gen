@@ -14,7 +14,7 @@ const App = () => {
         <NavBar />
         <Switch>
           <Route exact path="/"><ErrorBoundary><RandomMeme /></ErrorBoundary></Route>
-          <Route exact path="/SearchMemes"></Route>
+          <Route exact path="/SearchMemes"><SearchMemes/></Route>
           <Route exact path="/UploadMeme">
             <UploadMeme />
           </Route>
