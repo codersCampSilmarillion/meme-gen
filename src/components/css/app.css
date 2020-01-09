@@ -1,6 +1,7 @@
 .main {
     text-align: center;
     padding: 30px 15%;
+    margin-top: 50px;
 }
 
 .header {
@@ -14,7 +15,7 @@
 
 .mem-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px,1fr)); 
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     grid-auto-rows: 10px;
 }
 
@@ -23,6 +24,6 @@
 }
 
 form {
-text-align: center;
-margin-top: 30px;
+    text-align: center;
+    margin-top: 30px;
 }

@@ -6,6 +6,7 @@ import UploadMeme from "../views/UploadMeme";
 import RandomMeme from "./randomMeme";
 import ErrorBoundary from "./randomMeme/ErrorBoundary";
 import "./css/app.css";
+import SearchMemes from "../views/SearchMemes";
 
 const App = () => {
   return (
@@ -25,3 +26,4 @@ const App = () => {
   );
 };
 export default App;
+
