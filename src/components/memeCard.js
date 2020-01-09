@@ -1,35 +1,36 @@
-import React from 'react';
+import React from "react";
 
 class MemeCard extends React.Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
+    this.state = { spans: 0 };
+    this.memeRef = React.createRef();
+  }
 
-        this.state = {spans:0};
+  componentDidMount() {
+    this.memeRef.current.addEventListener("load", this.setSpans);
+    console.log(this.props.meme);
+  }
 
-        this.memeRef = React.createRef()
-    }
+  setSpans = () => {
+    const height = this.memeRef.current.height;
 
-    componentDidMount() {
-        this.memeRef.current.addEventListener('load', this.setSpans)
-    }
+    const spans = Math.ceil(height / 10);
 
-    setSpans = () => {
-        const height = this.memeRef.current.height
+    this.setState({ spans: spans });
+  };
 
-        const spans = Math.ceil(height/10)
-
-        this.setState({spans: spans });
-    }
-
-
-    render() {
-        return (
-            <div style ={{gridRowEnd: `span ${this.state.spans}`}}>
-                <img ref={this.memeRef} src= {this.props.meme.images.downsized.url}/>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div style={{ gridRowEnd: `span ${this.state.spans}` }}>
+        <img
+          ref={this.memeRef}
+          src={this.props.meme.images.downsized.url}
+          alt={this.props.meme.title}
+        />
+      </div>
+    );
+  }
 }
 
-
-export default MemeCard
+export default MemeCard;
