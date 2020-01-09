@@ -20,7 +20,7 @@ const MyBox = styled(Box)({
 });
 
 const MyHeader = styled(Box)({
-    marginTop: "14%",
+    marginTop: "8%",
     marginBottom: "2%",
     textAlign: "center"
 });
