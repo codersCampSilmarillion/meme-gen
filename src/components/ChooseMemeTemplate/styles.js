@@ -17,8 +17,6 @@ const useStyles = makeStyles(theme => ({
   gridList: {
     flexWrap: "nowrap",
     transform: "translateZ(0)",
-    width: "50%",
-    [theme.breakpoints.down(700)]: { width: "100%" },
     maxHeight: "200px"
   },
   titleBar: {
@@ -44,6 +42,12 @@ const useStyles = makeStyles(theme => ({
     padding: "10px",
     width: "50%",
     [theme.breakpoints.down(700)]: { width: "80%" }
+  },
+  formList: {
+    display: "flex",
+    flexDirection: "column",
+    width: "50%",
+    [theme.breakpoints.down(700)]: { width: "100%" }
   }
 }));
 

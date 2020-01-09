@@ -9,7 +9,11 @@ import {
 } from "@material-ui/core";
 import useStyles from "./styles";
 
-const ChooseMemeTemplate = ({ selectedTemplate, setSelectedTemplate }) => {
+const ChooseMemeTemplate = ({
+  selectedTemplate,
+  setSelectedTemplate,
+  children
+}) => {
   const [templates, setTemplates] = useState([]);
 
   const classes = useStyles();
@@ -51,9 +55,12 @@ const ChooseMemeTemplate = ({ selectedTemplate, setSelectedTemplate }) => {
   return (
     <Container maxWidth="md">
       <div className={classes.root}>
-        <GridList className={classes.gridList} cols={imagesInList()}>
-          {tiles}
-        </GridList>
+        <div className={classes.formList}>
+          <GridList className={classes.gridList} cols={imagesInList()}>
+            {tiles}
+          </GridList>
+          {children}
+        </div>
         <div className={classes.selected}>
           <Typography variant="h6" className={classes.selectedTitle}>
             {selectedTemplate.name}
