@@ -1,6 +1,6 @@
-import React from 'react';
 import { styled } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import Box from "@material-ui/core/Box";
 
 const MyButton = styled(Button)({
     background: 'linear-gradient(30deg, #bdc3c7 30%, #2c3e50 80%)',
@@ -10,9 +10,22 @@ const MyButton = styled(Button)({
     height: 48,
     padding: '4%',
     margin: '4%',
-
 });
 
-export default function StyledComponents() {
-    return <MyButton>Start making meme</MyButton>;
-}
+const MyBox = styled(Box)({
+    display:"inline",
+    margin: 2,
+    padding: 2,
+    textAlign: "right"
+});
+
+const MyHeader = styled(Box)({
+    marginTop: "14%",
+    marginBottom: "2%",
+    textAlign: "center"
+});
+
+
+export {MyBox, MyButton, MyHeader};
+
+

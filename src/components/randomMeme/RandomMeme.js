@@ -1,86 +1,68 @@
 import React, {Component} from "react";
 import {
-    ListItemText , Grid, Container, Box, ListItemAvatar, Avatar, ListItem
+    ListItemText, Grid, Container, ListItemAvatar, Avatar, ListItem
 
 } from "@material-ui/core";
 import StarIcon from '@material-ui/icons/Star';
-import StyledComponents from "./styles";
+import ScaleImgToAverageSize from "./scaleImgToAverageSize";
+import {MyButton, MyBox, MyHeader} from "./styles";
 
 class RandomMeme extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             randomImg: "",
             allMemeImg: [],
             alt: "",
             width: "",
-            height: ""
+            height: "",
         };
     }
+
 
     random() {
         let randomNumber = Math.floor(
             Math.random() * this.state.allMemeImg.length
         );
+        const {url, name, width, height} = this.state.allMemeImg[randomNumber];
         this.setState({
-            randomImg: this.state.allMemeImg[randomNumber].url,
-            alt: this.state.allMemeImg[randomNumber].name,
-            width: this.state.allMemeImg[randomNumber].width,
-            height: this.state.allMemeImg[randomNumber].height
+            randomImg: url, alt: name, width: width, height: height
         });
     }
 
-    imgSize(width, height) {
-        if (height > 1500 || width > 1500) {
-            return 0.2;
-        }
-        if (height > 1000 || width > 1000){
-            return 0.4;
-        }
-        if (height > 560 && height < 1000 || width > 560 && width < 1000) {
-            return 0.6
-        } else {
-            return 0.8
-        }
-    }
-
-
-    handleClick = () => {
-        console.log("lalala")
-    };
-
-    componentDidMount() {
-        fetch("https://api.imgflip.com/get_memes")
+    async componentDidMount() {
+        await fetch("https://api.imgflip.com/get_memes")
             .then(data => data.json())
             .then(response => {
                 const {memes} = response.data;
                 this.setState({allMemeImg: memes});
                 this.random();
+            })
+            .catch(err => {console.log("Server is not available");
             });
     }
 
     render() {
-        console.log(this.state)
         return (
             <Container>
-                <Box style={{marginTop: "14%", marginBottom: "2%"}} textAlign="center">
+                <MyHeader>
                     <h1>Make your own amazing meme!</h1>
                     <p>Create your meme easy</p>
-                </Box>
+                </MyHeader>
                 <Grid container spacing={1} style={{backgroundColor: " rgb(245,245,240)"}}>
-                    <Box component={"div"} display={"inline"} m={2}>
-                        <img className="imgRand" p={2} src={this.state.randomImg}
+                    <MyBox>
+                        <img src={this.state.randomImg}
                              alt={this.state.alt}
-                             width={this.state.width * this.imgSize(this.state.width, this.state.height)}
-                             height={this.state.height * this.imgSize(this.state.width, this.state.height)}
+                             width={this.state.width * ScaleImgToAverageSize(this.state.width, this.state.height)}
+                             height={this.state.height * ScaleImgToAverageSize(this.state.width, this.state.height)}
                         />
-                    </Box>
-                    <Box component={"div"} display={"inline"} m={4} p={3} textAlign="right">
-                        <h2 textAlign="right">How to make a meme</h2>
+                    </MyBox>
+                    <MyBox>
+                        <h2>How to make a meme</h2>
                         <ListItem>
                             <ListItemAvatar>
                                 <Avatar>
-                                    <StarIcon />
+                                    <StarIcon/>
                                 </Avatar>
                             </ListItemAvatar>
                             <ListItemText primary="Choose you meme template"/>
@@ -88,7 +70,7 @@ class RandomMeme extends Component {
                         <ListItem>
                             <ListItemAvatar>
                                 <Avatar>
-                                    <StarIcon />
+                                    <StarIcon/>
                                 </Avatar>
                             </ListItemAvatar>
                             <ListItemText primary="Write your unique text"/>
@@ -96,20 +78,19 @@ class RandomMeme extends Component {
                         <ListItem>
                             <ListItemAvatar>
                                 <Avatar>
-                                    <StarIcon />
+                                    <StarIcon/>
                                 </Avatar>
                             </ListItemAvatar>
                             <ListItemText primary="Voila! You have just created a meme"/>
                         </ListItem>
-                        <StyledComponents />
+                        <MyButton>Start making meme</MyButton>
                         {/*TODO routing to meme template*/}
-                    </Box>
+                    </MyBox>
                 </Grid>
             </Container>
-        );
+        )
     }
 }
-
 
 export default RandomMeme;
 

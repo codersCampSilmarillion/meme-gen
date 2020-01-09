@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import ImageZoom from 'react-medium-image-zoom'
 
-function meme(props) {
+function Meme(props) {
     let width = props.width * 1.5;
     let height = props.height * 1.5;
     return (

@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import NavBar from "./NavBar";
 import Typography from "@material-ui/core/Typography";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import axios from "axios";
 import SearchBar from "./SearchBar";
 import MemesList from "./MemesList";
 // import Favourites from "./Favourites";
 //import UploadMeme from "../views/UploadMeme";
-import RandomMeme from "./RandomMeme/RandomMeme";
+import RandomMeme from "./randomMeme";
+import ErrorBoundary from "./randomMeme/ErrorBoundary";
 import "./css/app.css";
 
 const App = () => {
@@ -28,10 +29,12 @@ const App = () => {
 
     return (
         <Router>
-            <NavBar />
+            <NavBar/>
             <Switch>
                 <Route exact path="/">
-                    <RandomMeme />
+                    <ErrorBoundary>
+                        <RandomMeme/>
+                    </ErrorBoundary>
                 </Route>
                 <Route exact path="/SearchMemes">
                     <div className="main">
@@ -40,9 +43,9 @@ const App = () => {
                             <Typography variant="h4">
                                 Insert a phrase, press Enter and search for your favorite GIF!
                             </Typography>
-                            <SearchBar onSubmit={onSearchSubmit} />
+                            <SearchBar onSubmit={onSearchSubmit}/>
                         </div>
-                        <MemesList memes={memes} />
+                        <MemesList memes={memes}/>
                     </div>
                 </Route>
                 <Route exact path="/UploadMeme">
