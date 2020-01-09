@@ -1,23 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import Content from "./Content.js";
-import { makeStyles } from "@material-ui/core/styles";
-
-const useStyles = makeStyles({
-  form: {
-    display: "flex",
-    flexDirection: "column"
-  },
-  input: {
-    margin: "5px"
-  },
-  btn: {
-    width: "200px",
-    marginRight: "auto",
-    marginLeft: "auto"
-  }
-});
+import useStyles from "./styles";
 
 const objToQuery = obj => {
   const data = Object.entries(obj).map(([key, value]) => `${key}=${value}`);
@@ -28,6 +13,7 @@ function UploadMemeForm({ selectedTemplate }) {
   const [bottomText, setBottomText] = useState("");
   const [open, setOpen] = useState(false);
   const [memeUrl, setMemeUrl] = useState();
+  const [btnDisable, setBtnDisable] = useState(true);
   const classes = useStyles();
 
   const memeData = {
@@ -38,12 +24,27 @@ function UploadMemeForm({ selectedTemplate }) {
     password: "1silmarillion23"
   };
   const handleClickOpen = () => {
-    setOpen(true);
+    if (selectedTemplate === undefined) {
+      alert("Select a template!");
+    } else {
+      setOpen(true);
+    }
   };
   const handleClose = value => {
     setOpen(false);
     setMemeUrl();
   };
+
+  const validate = (topText, bottomText) => {
+    if (topText.length === 0 && bottomText.length === 0) {
+      setBtnDisable(true);
+    } else setBtnDisable(false);
+  };
+
+  useEffect(() => {
+    validate(topText, bottomText);
+  }, [topText, bottomText]);
+
   return (
     <div>
       <form
@@ -68,7 +69,9 @@ function UploadMemeForm({ selectedTemplate }) {
           variant="outlined"
           type="text"
           name="topText"
-          onChange={e => setTopText(e.target.value)}
+          onChange={e => {
+            setTopText(e.target.value);
+          }}
           className={classes.input}
         />
         <TextField
@@ -76,7 +79,9 @@ function UploadMemeForm({ selectedTemplate }) {
           variant="outlined"
           type="text"
           name="bottomText"
-          onChange={e => setBottomText(e.target.value)}
+          onChange={e => {
+            setBottomText(e.target.value);
+          }}
           className={classes.input}
         />
         <Button
@@ -84,6 +89,7 @@ function UploadMemeForm({ selectedTemplate }) {
           type="submit"
           onClick={handleClickOpen}
           className={classes.btn}
+          disabled={btnDisable}
         >
           Generate meme
         </Button>
