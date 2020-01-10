@@ -2,7 +2,7 @@
   "name": "meme-gen",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://coderscampsilmarillion.github.io/meme-gen/",
+  "homepage": "https://github.com/codersCampSilmarillion/meme-gen/blob/master/src/index.js",
   "dependencies": {
     "@material-ui/core": "^4.8.2",
     "@material-ui/icons": "^4.5.1",
