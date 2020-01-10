@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {Container, Typography} from "@material-ui/core";
 import {MyButton, MyBox, MyHeader} from "../randomMeme/styles";
+import {Link} from "react-router-dom";
 
 class Favourites extends Component {
     constructor(props) {
@@ -33,7 +34,6 @@ class Favourites extends Component {
             });
     }
 
-
     allStorage() {
         var values = [],
             keys = Object.keys(localStorage),
@@ -51,14 +51,22 @@ class Favourites extends Component {
     }
 
     render() {
-        if (this.state.errorMessage) {
+        if (localStorage.length == 0) {
+            return (
+                <MyHeader>
+                    <Typography variant={"h3"}>You do not have favourite meme yet</Typography>
+                    <Link to={"/UploadMeme"}>
+                        <MyButton>Start make a meme</MyButton>
+                    </Link>
+                </MyHeader>)
+        } else if (this.state.errorMessage) {
             return (<div>
                 <h1>Server is not available.<p>Try again later</p><img
                     src={"http://www.samsungsfour.com/images/exclamation.png"} alt={"Error img"}/></h1>
             </div>)
         }
         return (
-            <Container>
+            <Container align={"center"}>
                 <MyHeader>
                     <Typography variant={"h2"}>
                         Your favorite meme
