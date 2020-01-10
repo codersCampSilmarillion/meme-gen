@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/codersCampSilmarillion/meme-gen/blob/master/src/index.js/static/css/main.679f548d.chunk.css",
-    "main.js": "/codersCampSilmarillion/meme-gen/blob/master/src/index.js/static/js/main.c694a5e8.chunk.js",
-    "main.js.map": "/codersCampSilmarillion/meme-gen/blob/master/src/index.js/static/js/main.c694a5e8.chunk.js.map",
-    "runtime-main.js": "/codersCampSilmarillion/meme-gen/blob/master/src/index.js/static/js/runtime-main.babd1691.js",
-    "runtime-main.js.map": "/codersCampSilmarillion/meme-gen/blob/master/src/index.js/static/js/runtime-main.babd1691.js.map",
-    "static/js/2.607ea260.chunk.js": "/codersCampSilmarillion/meme-gen/blob/master/src/index.js/static/js/2.607ea260.chunk.js",
-    "static/js/2.607ea260.chunk.js.map": "/codersCampSilmarillion/meme-gen/blob/master/src/index.js/static/js/2.607ea260.chunk.js.map",
-    "index.html": "/codersCampSilmarillion/meme-gen/blob/master/src/index.js/index.html",
-    "precache-manifest.61319b9484a79e4c7be874f34999dece.js": "/codersCampSilmarillion/meme-gen/blob/master/src/index.js/precache-manifest.61319b9484a79e4c7be874f34999dece.js",
-    "service-worker.js": "/codersCampSilmarillion/meme-gen/blob/master/src/index.js/service-worker.js",
-    "static/css/main.679f548d.chunk.css.map": "/codersCampSilmarillion/meme-gen/blob/master/src/index.js/static/css/main.679f548d.chunk.css.map",
-    "static/js/2.607ea260.chunk.js.LICENSE": "/codersCampSilmarillion/meme-gen/blob/master/src/index.js/static/js/2.607ea260.chunk.js.LICENSE"
+    "main.css": "/codersCampSilmarillion/meme-gen/src/index.js/static/css/main.679f548d.chunk.css",
+    "main.js": "/codersCampSilmarillion/meme-gen/src/index.js/static/js/main.c694a5e8.chunk.js",
+    "main.js.map": "/codersCampSilmarillion/meme-gen/src/index.js/static/js/main.c694a5e8.chunk.js.map",
+    "runtime-main.js": "/codersCampSilmarillion/meme-gen/src/index.js/static/js/runtime-main.5bb182a6.js",
+    "runtime-main.js.map": "/codersCampSilmarillion/meme-gen/src/index.js/static/js/runtime-main.5bb182a6.js.map",
+    "static/js/2.607ea260.chunk.js": "/codersCampSilmarillion/meme-gen/src/index.js/static/js/2.607ea260.chunk.js",
+    "static/js/2.607ea260.chunk.js.map": "/codersCampSilmarillion/meme-gen/src/index.js/static/js/2.607ea260.chunk.js.map",
+    "index.html": "/codersCampSilmarillion/meme-gen/src/index.js/index.html",
+    "precache-manifest.f2c23b1888cf433d5387798bf24396c0.js": "/codersCampSilmarillion/meme-gen/src/index.js/precache-manifest.f2c23b1888cf433d5387798bf24396c0.js",
+    "service-worker.js": "/codersCampSilmarillion/meme-gen/src/index.js/service-worker.js",
+    "static/css/main.679f548d.chunk.css.map": "/codersCampSilmarillion/meme-gen/src/index.js/static/css/main.679f548d.chunk.css.map",
+    "static/js/2.607ea260.chunk.js.LICENSE": "/codersCampSilmarillion/meme-gen/src/index.js/static/js/2.607ea260.chunk.js.LICENSE"
   },
   "entrypoints": [
-    "static/js/runtime-main.babd1691.js",
+    "static/js/runtime-main.5bb182a6.js",
     "static/js/2.607ea260.chunk.js",
     "static/css/main.679f548d.chunk.css",
     "static/js/main.c694a5e8.chunk.js"
