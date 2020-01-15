@@ -1,0 +1,581 @@
+@import url('https://fonts.googleapis.com/css?family=Mansalva|Nanum+Gothic:700&display=swap');
+
+@keyframes Fade {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes Dotted {
+    0% {
+        opacity:0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+@keyframes Background {
+    0% {
+      background-position: 0% 50%
+    }
+    50% {
+      background-position: 100% 50%
+    }
+    100% {
+      background-position: 0% 50%
+    }
+  }
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nanum Gothic Coding', monospace;
+    text-align: center;
+    perspective: 100vh;
+}
+
+.welcome {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    height: 100vh;
+    /* background-image: url('img/grain.png'); */
+    background-color: rgb(255, 255, 255);
+    animation: Fade 1.3s ease;
+    animation-delay: 1.3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+
+}
+
+.welcome__text {
+    font-family: 'Mansalva', cursive;
+    font-size: 6em;
+    color: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+}
+
+.welcome__dot {
+    opacity: 0;
+    animation: Dotted .5s ease;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.welcome__dot--1 {
+    animation-delay: .3s;
+}
+
+.welcome__dot--2 {
+    animation-delay: .8s;
+}
+
+
+/* main section */
+.main {
+    position: absolute;
+    transform-origin: bottom;
+    width: 100%;
+    height: 100vh;
+    min-height: 550px;
+    min-width: 230px;
+    background-position: center;
+    background-size: cover;
+    background-image: url('img/main.jpg');
+    transition: 0.3s;
+    overflow: hidden;
+}
+
+.main::after, .about::after, .portfolio::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    min-height: 550px;
+    background: linear-gradient(253deg, rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0.4), rgba(0, 0, 0, 0.4));
+    background-size: 200% 200%;
+    animation: Background 15s ease infinite;
+}
+
+.main__contact {
+    position: absolute;
+    z-index: 1;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 1.3em;
+}
+
+.main__name {
+    font-family: 'Mansalva', cursive;
+    font-size: 4em;
+    color: #fff;
+    position: absolute;
+    z-index: 1;
+    top: 28%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.main__about {
+    font-size: 1em;
+    color: #fff;
+    position: absolute;
+    z-index: 1;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.main__menu {
+    position: absolute;
+    z-index: 1;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.main__button {
+    margin: 3px;
+    border: 2px solid #fff;
+    border-radius: 25px;
+    height: 50px;
+    width: 130px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0);
+    letter-spacing: 3px;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.main__button:hover {
+    background-color: #fff;
+    color: #000000;
+}
+
+.main__social {
+    position: absolute;
+    z-index: 1;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.main__icon {
+    padding: 10px;
+    font-size: 18px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    border-radius: 50%;
+}
+
+.main__icon:hover {
+    opacity: 0.7;
+}    
+
+.main__icon--facebook {
+    background: #125688;
+    color: white;
+}
+
+.main__icon--instagram {
+    background: #dd0045;
+    color: white;
+}
+
+.main__icon--github {
+    background: #555555;
+    color: white;
+}
+
+/* section close buttons */
+.close-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    display: block;
+    overflow: hidden;
+    transition: all 200ms;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 36px 36px;
+    background-image: url('img/close.svg');
+    cursor: pointer;
+    z-index: 20;
+}
+
+.close-button:hover {
+    transform: rotate(90deg);
+}
+
+/* gallery section gallery.html */
+
+.gallery {
+    transform: translateY(-100%);
+    color: black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: block;
+    min-height: 100vh;
+    /* background-image: url('img/grain.png'); */
+    background-color: rgb(255, 255, 255);
+    /* transition: all 300ms linear; */
+    z-index: 10;
+}
+
+.gallery__grid {
+
+    margin: 60px auto 0px auto;
+    max-width:1200px;
+    padding:0 1rem;
+  }
+
+  .gallery__img{
+    display:block;
+    max-width:100%;
+    opacity: 0;
+    transition: .6s;
+  }
+  .gallery__cell{
+    margin:1rem;
+  }
+
+
+
+/* about section */
+.about {
+    transform: translateY(-100%);
+    color: black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: block;
+    min-height: 100vh;
+    /* background-image: url('img/grain.png'); */
+    background-color: rgb(255, 255, 255);
+    transition: all 300ms;
+    z-index: 10;
+}
+
+/* because main have min height I use this container to set min height if bigger than 100vh from main about container */
+.about__container{
+    min-height:  550px;
+}
+
+
+.about__me {
+    color: rgba(0, 0, 0, 0.5);
+    margin: 60px 10px 20px 10px;
+    font-size: 1.2rem;
+    line-height: 130%;
+}
+
+.about__me--font {
+    color: black;
+    font-size: 4rem;
+    font-family: 'Mansalva', cursive;
+}
+
+.skills {
+    padding: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+
+.skills__skill {
+    color: rgb(7, 7, 7);
+    margin: 10px;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 20%;
+}
+
+.skills__icon {
+    font-size: 5rem;
+}
+
+
+/*portfolio section */
+.portfolio {
+    transform: translateY(-100%);
+    color: rgb(0, 0, 0);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: block;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-color:rgb(255, 255, 255);
+    transition: all 300ms;
+    z-index: 10;
+}
+
+
+
+.portfolio__head {
+    font-family: 'Mansalva', cursive;
+    font-size: 1.6rem;
+    position: absolute;
+    left: 10px;
+    top: 20px;
+}
+
+.projects {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.projects__item {
+    position: relative;
+    flex-basis: 300px;
+    background-position: center;
+    background-size: cover;
+    margin: 20px 10px;
+    z-index: 1;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.projects__item::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+.projects__info {
+    position: absolute;
+    display: block;
+    bottom: 3px;
+    right: 3px;
+    font-size: 2rem;
+    color: rgba(0, 0, 0, 0.8);
+    transition: .3s;
+}
+
+.projects__item:hover .projects__overlay {
+    opacity: 1;
+    z-index: 13;
+}
+
+.projects__item:hover .projects__info {
+    opacity: 0;
+}
+
+.projects__overlay {
+    font-size: 3rem;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 11;
+    display: flex;
+    flex-wrap: wrap;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    opacity: 0;
+    transition: .3s;
+    z-index: 0;
+}
+
+.projects__description {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    flex-basis: 100%;
+    color: rgb(255, 255, 255);
+
+}
+
+.projects__icon {
+	color: #fff;
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    border: 1px solid #fff;
+    text-align: center;
+    line-height: 50px;
+    margin: 0 5px;
+    border-radius: 50%;
+    font-size: 18px;
+    transition: all 0.5s ease 0s;
+}
+
+.projects__icon:hover {
+	background:rgb(70, 70, 70);
+}
+
+.projects__item--gallery {
+    background-image: url('img/gallery.jpg');
+}
+
+.projects__item--marzeniekulinarne {
+    background-image: url('img/marzenie.jpg');
+}
+
+.projects__item--adeon {
+    background-image: url('img/adeon.jpg');
+}
+
+.projects__item--gallery {
+    background-image: url('img/gallery.jpg');
+}
+
+.projects__item--china {
+    background-image: url('img/china.jpg');
+}
+
+
+/* desktop */
+
+/* before I used 1025px */
+
+@media (min-width:767px) {
+    
+    /* section close buttons */
+    .close-button {
+        top: 40px;
+        right: 40px;
+        width: 40px;
+        height: 40px;
+    }
+
+
+    /* main section */
+
+    .main__name {
+        font-size: 5em;
+    }
+
+    .main__about {
+        font-size: 1.5em;
+        top: 60%;
+    }
+
+
+
+    /* about section */   
+    .skills {
+        margin: 0px auto;
+        width: 50%;
+    }
+
+
+    .skills__skill {
+        margin: 30px;
+    }
+    
+    .skills__icon {
+        font-size: 8rem;
+    }
+
+
+    /* portfolio section */
+    .portfolio {
+        background-attachment: fixed;
+        background-image: url('img/portfolio.jpg');
+    }
+
+    .portfolio__head {
+        left: auto;
+        font-size: 3rem;
+        right: 120px;
+        top: 90px;
+    }
+
+    .projects {
+        margin: 200px auto 0 auto;
+        width: 100%;
+        /* height: 100vh; */
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+
+    .projects__item {
+        border: 20px solid white;
+        border-bottom: 70px solid white;
+        flex-basis: 45%;
+        height: 450px;
+        margin: 10px 10px;
+    }
+
+/* gallery section gallery.html */
+
+.gallery__grid {
+    display:flex;
+    flex-wrap:wrap;
+    flex-direction:row;
+  }
+
+  .gallery__cell {
+    width:calc(50% - 2rem);
+  }
+
+}
+
+
+@media (min-width:1400px) {
+
+    /* portfolio section */
+
+    .portfolio__head {
+        right: 220px;
+    }
+
+    .projects {
+        margin: 230px auto 0 auto;
+        flex-wrap: wrap;
+        width: 80%;
+    }
+
+    .projects__item {
+        flex-basis: 23%;
+        margin-bottom: 50px;
+    }
+
+    /* gallery section gallery.html */
+
+  
+  .gallery__cell {
+        width:calc(100%/3 - 2rem);
+      }
+  }
